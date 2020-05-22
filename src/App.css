@@ -19,7 +19,11 @@
   flex-direction: row;
   justify-content: flex-start;
   margin: 5px;
-  border-bottom:  2px solid black;
+  padding: 0px 5px;
+  background-color: blue;
+  color: white;
+  box-shadow: 0px 3px 3px gray;
+  /* border-bottom:  2px solid black; */
 }
 
 .titlePane h2{
@@ -66,10 +70,19 @@
   padding: 20px;
 }
 
+.iconDiv:active{
+  color: gainsboro;
+}
+
 .listItemDiv{
   height: 50px;
   padding: 0px 20px 20px;
   border-bottom: 1px solid grey;
+}
+
+.listItemDiv:hover,.listItemDiv.active{
+  background-color: lightblue;
+  color: white
 }
 
 .listItemDiv h2{

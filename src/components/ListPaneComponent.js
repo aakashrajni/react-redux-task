@@ -2,20 +2,14 @@ import React from 'react';
 import '../App.css';
 import ListItem from './ListItemComponent';
 
-function ListPaneComponent(){
+const ListPaneComponent = ({vehicles,selectedIndex,dispatch})=>{
     return(
         <div className="listPane">
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
-            <ListItem />
+            {
+                vehicles.map((vehicle)=>{
+                    return <ListItem key={vehicle.id} id={vehicle.id} vehicle={vehicle} dispatch={dispatch} selectedIndex={selectedIndex}/>
+                })
+            }
         </div>
     );
 }

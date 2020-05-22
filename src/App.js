@@ -1,18 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './stores';
 import './App.css';
-import TitlePane from './components/TitlePaneComponent';
-import ListPane from './components/ListPaneComponent';
-import DetailPane from './components/DetailPaneComponent';
+import MainView from './components/MainView';
 
 function App() {
+
   return (
-    <div className="appContainer">
-      <div className="mainPane">
-          <TitlePane />
-          <ListPane />
-      </div>
-      <DetailPane />
-    </div>
+    <Provider store={store}>
+      <MainView />
+    </Provider>
   );
 }
 
