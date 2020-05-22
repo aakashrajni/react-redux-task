@@ -9,15 +9,15 @@ import { store } from '../stores';
 
 const MainView = (props) => {
 
-  const { vehicles, selectVehicle } = props;  
+  const { selectVehicle } = props;  
   useEffect(()=>{
-    store.dispatch(fetchVehicles()).then(() => console.log(store.getState()))
+    store.dispatch(fetchVehicles(1)).then(() => console.log(store.getState()))
   },[])
   return (
     <div className="appContainer">
     <div className="mainPane">
-        <TitlePane dispatch={store.dispatch}/>
-        <ListPane vehicles={vehicles} dispatch={store.dispatch} selectedIndex={selectVehicle.id}/>
+        <TitlePane dispatch={store.dispatch} />
+        <ListPane {...props} />
     </div>
     <DetailPane vehicleDetail={selectVehicle} />  
     </div>
@@ -25,10 +25,12 @@ const MainView = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    const {selectVehicle,vehicles} = state;
+    const {selectVehicle,vehicles,pageCount,endOfPost} = state;
     return {
+        pageCount,
+        endOfPost,
         selectVehicle,
-        vehicles: vehicles  
+        vehicles  
     }
 }
 
