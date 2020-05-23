@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import PropTypes from 'prop-types'
 
 const DetailPaneComponent = ({vehicleDetail}) => {
     const isVehicleSelected = !(Object.keys(vehicleDetail).length === 0);
@@ -13,6 +14,14 @@ const DetailPaneComponent = ({vehicleDetail}) => {
             }
         </div>
     );
+}
+
+DetailPaneComponent.propTypes = {
+    vehicleDetail: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        driver: PropTypes.string
+    })
 }
 
 export default DetailPaneComponent;

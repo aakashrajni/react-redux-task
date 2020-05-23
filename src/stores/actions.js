@@ -71,8 +71,5 @@ export function postVehicles() {
             return json
           }
         )
-        .then(json =>
-          console.log(json)
-        )
     }
   }

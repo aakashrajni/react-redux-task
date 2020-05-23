@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import '../App.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { postVehicles } from '../stores/actions';
@@ -11,6 +12,10 @@ const TitlePaneComponent = ({ dispatch })=>{
             <div className="iconDiv" onClick={()=>dispatch(postVehicles())}><i className="fa fa-plus iconStyle"></i></div>
         </div>
     );
+}
+
+TitlePaneComponent.propTypes = {
+    dispatch: PropTypes.func.isRequired
 }
 
 export default TitlePaneComponent;

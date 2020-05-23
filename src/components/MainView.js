@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
 import '../App.css';
 import TitlePane from './TitlePaneComponent';
 import ListPane from './ListPaneComponent';
@@ -17,11 +18,19 @@ const MainView = (props) => {
     <div className="appContainer">
     <div className="mainPane">
         <TitlePane dispatch={store.dispatch} />
-        <ListPane {...props} />
+        <ListPane {...props} selectedIndex={selectVehicle.id}/>
     </div>
     <DetailPane vehicleDetail={selectVehicle} />  
     </div>
   );
+}
+
+MainView.propTypes = {
+  selectVehicle: PropTypes.shape({
+        id: PropTypes.number,
+        title: PropTypes.string,
+        driver: PropTypes.string
+    })
 }
 
 const mapStateToProps = (state) => {
